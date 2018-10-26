@@ -130,10 +130,20 @@
     [ Isotope ]*/
     var $topeContainer = $('.isotope-grid');
     var $filter = $('.filter-tope-group');
+    var $filter2 = $('.filter-li-group');
 
     // filter items on button click
     $filter.each(function () {
         $filter.on('click', 'button', function () {
+            var filterValue = $(this).attr('data-filter');
+            $topeContainer.isotope({filter: filterValue});
+        });
+        
+    });
+
+    // filter items on li click
+    $filter2.each(function () {
+        $filter.on('click', 'li', function () {
             var filterValue = $(this).attr('data-filter');
             $topeContainer.isotope({filter: filterValue});
         });
