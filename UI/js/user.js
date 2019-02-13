@@ -52,11 +52,12 @@ getProduct();
 const setView = (data) => {
   const prod = product.find((element) => element.id === data);
   $('#view-name').html(prod.name);
-  $('#view-price').html(prod.price);
+  $('#view-price').html('₦ ' + prod.price);
   $('#item-id').val(data);
   $('#view-color').html(prod.color.map((colour) => (
     `<option>${colour}</option>`
   )));
+  $('#view-quantity').val('1');
   $('#item-image').attr('src', prod.path);
 }
 
