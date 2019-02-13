@@ -52,11 +52,12 @@ getProduct();
 const setView = (data) => {
   const prod = product.find((element) => element.id === data);
   $('#view-name').html(prod.name);
-  $('#view-price').html(prod.price);
+  $('#view-price').html('₦ ' + prod.price);
   $('#item-id').val(data);
   $('#view-color').html(prod.color.map((colour) => (
     `<option>${colour}</option>`
   )));
+  $('#view-quantity').val('1');
   $('#item-image').attr('src', prod.path);
 }
 
@@ -81,7 +82,13 @@ const sendOrder = (event) => {
     order.phone = $('#phone').val();
     order.items = cart;
     order.address = $('#address').val();
-    console.log(order);
+    request('post', 'sendorder', { order }).then((userOrders) => {
+      if (userOrders.success) {
+        swal('Sent', "Thank you your order has been sent", "success");
+      } else {
+        swal('Failed', "Sorry something went wrong with your order try again", "error");
+      }
+    });
   }
 }
 
@@ -94,6 +101,12 @@ const sendQuery = (event) => {
       email: $('#email').val(),
       message: $('#msg').val(),
     };
-    console.log(contact);
+    request('post', 'contact', { contact }).then((userOrders) => {
+      if (userOrders.success) {
+        swal('Sent', "Thank you we will get back to you shortly", "success");
+      } else {
+        swal('Failed', "Sorry something went wrong with your message try again", "error");
+      }
+    });
   }
 }
