@@ -1,5 +1,3 @@
-let cart = [];
-
 const category = {
     "Corporate": "corporate",
     "Jersey": "jersey",
@@ -19,7 +17,7 @@ const getProduct = () => {
                         <div class="block2-pic hov-img0">
                             <img src="${item.path}">
 
-                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                            <a href="#" onclick=setView('${item.id}') class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
                                 Quick View
                             </a>
                         </div>
@@ -31,7 +29,7 @@ const getProduct = () => {
                                 </a>
 
                                 <span class="stext-105 cl3">
-                                    ₦ ${item.price}
+                                    ₦ <span class="digits">${item.price}</span>
                                 </span>
                             </div>
 
@@ -46,8 +44,56 @@ const getProduct = () => {
                     </div>`
     });
     document.getElementById("product-list").innerHTML = items;
+    $(".digits").digits();
 }
 
 getProduct();
 
+const setView = (data) => {
+  const prod = product.find((element) => element.id === data);
+  $('#view-name').html(prod.name);
+  $('#view-price').html(prod.price);
+  $('#item-id').val(data);
+  $('#view-color').html(prod.color.map((colour) => (
+    `<option>${colour}</option>`
+  )));
+  $('#item-image').attr('src', prod.path);
+}
 
+const showHide = (event) => {
+  event.preventDefault();
+  $('#toggler').toggleClass("hide");
+  if ($( "#toggler" ).hasClass( "hide" )) {
+    $('#checkout').html('Check Out');
+  } else {
+    $('#checkout').html('Hide Check Out');
+  }
+}
+
+const sendOrder = (event) => {
+  event.preventDefault();
+  if (cart.length < 1) {
+    swal('Failed', "Please You must add at least one item to the cart", "error");
+  } else if(!document.getElementById("toggler").checkValidity()) {
+    swal('Failed', "Please fill the form correctly", "error");
+  } else {
+    order.name = $('#fullName').val();
+    order.phone = $('#phone').val();
+    order.items = cart;
+    order.address = $('#address').val();
+    console.log(order);
+  }
+}
+
+const sendQuery = (event) => {
+  event.preventDefault();
+  if(!document.getElementById("contact-us").checkValidity()) {
+    swal('Failed', "Please fill the contact us form correctly", "error");
+  } else {
+    const contact = {
+      email: $('#email').val(),
+      message: $('#msg').val(),
+    };
+    console.log(contact);
+  }
+}

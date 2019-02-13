@@ -582,6 +582,36 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   color: #6c7ae0;
 }
 
+.order-data {
+  margin-bottom: 7%;
+}
+
+.hide {
+  display: none !important;
+}
+
+/* Hide HTML5 Up and Down arrows. */
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input::placeholder {
+  color: rgb(185, 184, 184) !important;
+}
+
+input:invalid {
+  border: 2px solid rgb(247, 104, 104);
+}
+
+#contact {
+  margin-top: 5%;
+}
+
 /*---------------------------------------------*/
 @media (max-width: 767px) {
   .wrap-search-header input,
