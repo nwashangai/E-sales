@@ -600,7 +600,7 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-input::placeholder {
+input::placeholder, textarea::placeholder {
   color: rgb(185, 184, 184) !important;
 }
 
