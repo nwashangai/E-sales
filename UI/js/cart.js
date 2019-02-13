@@ -57,13 +57,13 @@ const display = () => {
     `;
     }) : "No item selected"
   );
-  const total = cart.reduce((accumulator, currentValue) => (accumulator + currentValue.price), 0);
+  const total = cart.reduce((accumulator, currentValue) => (accumulator + currentValue.SubTotal), 0);
   const notify = cart.length;
   order.total = total;
   $('#total').html(`Total: ₦ ${total}`).digits();
   $(".digits").digits();
   document.querySelectorAll('[data-notify]')[0].dataset.notify = notify;
-  console.log(cart);
+  document.querySelectorAll('[data-notify]')[1].dataset.notify = notify;
 };
 const addToCart = () => {
   const id = $("#item-id").val();
@@ -72,13 +72,14 @@ const addToCart = () => {
   const found = product.find(element => element.id === id);
   if (itemIndex >= 0) {
     cart[itemIndex].quantity = quantity;
-    cart[itemIndex].price = parseFloat(found.price) * quantity;
+    cart[itemIndex].SubTotal = parseFloat(found.price) * quantity;
   } else if (found) {
     cart.push({
       id: found.id,
       name: found.name,
       category: found.category,
-      price: parseFloat(found.price) * quantity,
+      price: found.price,
+      SubTotal: parseFloat(found.price) * quantity,
       color: $("#view-color").val() || "none",
       quantity
     });
