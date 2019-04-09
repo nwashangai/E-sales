@@ -82,6 +82,7 @@ const sendOrder = (event) => {
     order.phone = $('#phone').val();
     order.items = cart;
     order.address = $('#address').val();
+    order.description = $('#description').val();
     request('post', 'sendorder', { order }).then((userOrders) => {
       if (userOrders.success) {
         swal('Sent', "Thank you your order has been sent", "success");

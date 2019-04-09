@@ -73,9 +73,13 @@ class SendEmail {
           <td>${element.quantity}</td>
           <td>₦ ${element.price}</td>
           <td>₦ ${element.SubTotal}</td>
-        </tr>`
+          </tr>`
 			)}
-      <tr><th colspan="5">Total</th><th>₦ ${order.total}</th></tr>
+      <tr><th colspan="5">Total</th><th>₦ ${order.total}</th></tr>colspan="6"
+      <tr><th colspan="6">Description</th></tr>
+      <tr><td colspan="6" rowspan="6" style="height:200px;"><pre>${
+				order.description
+			}</pre></td></tr>
     </table>
     </body>
     </html>`;
