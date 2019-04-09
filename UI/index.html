@@ -194,7 +194,7 @@
 	<div class="wrap-header-cart js-panel-cart">
 		<div class="s-full js-hide-cart"></div>
 
-		<div class="header-cart flex-col-l p-l-65 p-r-25">
+		<div class="header-cart flex-col-l p-l-65 p-r-25" id="checkout-container">
 			<div class="header-cart-title flex-w flex-sb-m p-b-8">
 				<span class="mtext-103 cl2">
 					Your Cart
@@ -225,7 +225,11 @@
               </div>
     
               <div class="bor8 bg0 m-b-22">
-                <input class="stext-111 cl8 plh3 size-111 p-lr-15" id="address" type="text" name="address" placeholder="Address" required>
+                <input class="stext-111 cl8 plh3 size-111 p-lr-15" id="address" type="text" name="address" placeholder="Address" required/>
+              </div>
+
+              <div class="bor8 bg0 m-b-22">
+                <textarea rows="10" cols="35" id="description" name="description" placeholder="Description"></textarea>
               </div>
               
               <div class="flex-w">
@@ -789,6 +793,7 @@
 <!--===============================================================================================-->
 	<script src="vendor/bootstrap/js/popper.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/jquery.autosize.min.js"></script>
 <!--===============================================================================================-->
 	<script src="vendor/select2/select2.min.js"></script>
 	<script>

@@ -28,6 +28,8 @@
     ===========================================================*/
     var windowH = $(window).height()/2;
 
+    $('textarea').autosize();
+
     $(window).on('scroll',function(){
         if ($(this).scrollTop() > windowH) {
             $("#myBtn").css('display','flex');
