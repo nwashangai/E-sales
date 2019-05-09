@@ -101,6 +101,11 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 /*//////////////////////////////////////////////////////////////////
 [ RS PLUGIN ]*/
 
+#account-detail-reminder {
+  margin-bottom: 5px;
+  color: blue;
+}
+
 /*------------------------------------------------------------------
 [ Bootstrap ]*/
 .container {max-width: 1380px;}
@@ -2173,7 +2178,7 @@ input.num-product::-webkit-inner-spin-button {
 ==================================================================*/
 .cl0 {color: #fff;}
 .cl1 {color: #717fe0;}
-.cl2 {color: #333;}
+.cl2 {color: rgb(3, 3, 3);}
 .cl3 {color: #666;}
 .cl4 {color: #999;}
 .cl5 {color: #222;}
