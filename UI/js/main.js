@@ -28,6 +28,8 @@
     ===========================================================*/
     var windowH = $(window).height()/2;
 
+    $('textarea').autosize();
+
     $(window).on('scroll',function(){
         if ($(this).scrollTop() > windowH) {
             $("#myBtn").css('display','flex');
@@ -99,7 +101,7 @@
             }
 
             $('.sub-menu-m').each(function(){
-                if($(this).css('display') == 'block') { console.log('hello');
+                if($(this).css('display') == 'block') {
                     $(this).css('display','none');
                     $(arrowMainMenu).removeClass('turn-arrow-main-menu-m');
                 }

@@ -32,6 +32,7 @@ const order = {
   name: "",
   phone: "",
   address: "",
+  description: "",
   items: []
 };
 

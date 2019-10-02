@@ -80,7 +80,7 @@ const request = (type, urlString, payload = {}) => {
 
 /**
  * Decode user token
- * @param {String} userToken 
+ * @param {String} userToken
  */
 const jwt_decode = (userToken) => {
     let token = {};
